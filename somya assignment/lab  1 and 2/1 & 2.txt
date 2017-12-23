@@ -1,0 +1,514 @@
+1.1
+*********************************************************************
+ * File                 : electricity.txt
+ * Author Name          : somyasree
+ * Desc                 : Program to calculate electric bill
+ * Version              : 1.0
+ * Last Modified Date   : 23-Dec-2017
+ *********************************************************************/
+BEGIN
+	DECLARE userID AS INTEGER
+	DECLARE lastReading AS INTEGER
+	DECLARE currentReading AS INTEGER
+	DECLARE username AS STRING
+	DECLARE unitCoins fixed AS INTEGER
+	DECLARE netBill, fixed AS INTEGER
+	SET fixed AS 100
+	PROMPT "Enter userID" AND STORE IN userID
+	PROMPT"Enter username" AND STORE IN username 
+	DISPLAY"Unit Consumed:",unitCoins
+	DISPLAY "Net amount:",netBill
+END
+
+
+
+1.2
+*********************************************************************
+ * File                 : tagColr.txt
+ * Author Name          : somyasree
+ * Desc                 : Program to recognize with different tags based on their experience
+ * Version              : 1.0
+ * Last Modified Date   : 23-Dec-2017
+ *********************************************************************/
+BEGIN
+	DECLARE exp AS INTEGER
+	DECLARE tagColr AS STRING
+	PROMPT "Enter the years of experience" AND STORE IT IN exp
+		IF(exp>=0 && exp<3)
+	     THEN
+			PRINT"Tag Color=Blue"
+		ELSEIF(exp>=3 && exp<5)
+	     THEN
+		PRINT"Tag Color=Grey"
+		ELSEIF(exp>=5 && exp<10)
+	     THEN
+		PRINT"Tag Color=Yellow"
+	ELSE
+		PRINT"Tag Color=Red"
+		ENDIF
+END
+
+
+
+1.3
+
+*********************************************************************
+ * File                 : fibonacci.txt
+ * Author Name          : somyasree
+ * Desc                 : Program to print the following sereies
+			   0 1 1 2 3 5 8 13 21.....
+ * Version              : 1.0
+ * Last Modified Date   : 23-Dec-2017
+ *********************************************************************/
+BEGIN
+	DELARE num1 AS INTEGER
+	DELARE num2 AS INTEGER
+	DELARE n AS INTEGER
+	DELARE num3 AS INTEGER
+	DELARE index AS INTEGER
+	INITIALIZE index AS 0
+	INITIALIZE num1 AS 0
+	INITIALIZE num2 AS 1
+	PROMPT"Enter the number of terms" AND STORE IT IN n
+	FOR index=1 TO n
+		PRINT num1
+		num3=num1+num2
+		num1=num2
+		num2=num3
+	END FOR
+	DISPLAY"Mathematical series"
+END
+
+
+
+
+1.4
+
+********************************************************************
+ * File                 : armstrong.txt
+ * Author Name          : somyasree
+ * Desc                 : Program to accept a number and chech whether a given number is an armstrong number.
+ * Version              : 1.0
+ * Last Modified Date   : 23-Dec-2017
+ *********************************************************************/
+BEGIN
+	DECLARE num,temp, rem AS INTEGER
+	DECLARE sum AS INTEGER AND INITIALIZE AS 0
+	PROMPT "Enter the number" AND STORE IT IN num
+		temp=num
+		WHILE(temp!=0)
+			rem=temp%10
+			sum=sum+rem*rem*rem
+			temp=temp/10
+		END WHILE
+		IF(sum==num)THEN
+			DISPLAY"Given number is armstrong number", sum
+	END IF
+END
+
+
+
+1.5
+
+
+*******************************************************************
+ * File                 : binaryTOdecimal.txt
+ * Author Name          : somyasree
+ * Desc                 : Program to convert binary to decimal
+ * Version              : 1.0
+ * Last Modified Date   : 23-Dec-2017
+ *********************************************************************/
+BEGIN
+	DECLARE num AS INTEGER
+	DECLARE bin_num AS INTEGER
+	DECLARE rem AS INTEGER
+	DECLARE dec_num AS INTEGER
+	DECLARE base AS INTEGER
+	INITIALIZE dec_num AS 0
+	INITIALIZE base AS 1
+	PROMPT"Enter the binary number" AND STORE IN num
+	bin_num=num
+	WHILE(num>0)
+		rem=num%=10
+		dec_num=dec_num+rem*base
+		num=num/10
+		base=base*2
+	END WHILE
+	PRINT"Binary number",bin_num
+	PRINT"Equivalent Decimal number",dec_num
+END
+
+
+1.6
+
+
+*******************************************************************
+ * File                 : smallest and even/odd.txt
+ * Author Name          : somyasree
+ * Desc                 : Program to accept 10 numbers in a n array and do the following using a loop.Display the smallest number.Display all ODD and EVEN numbers separetely
+ * Version              : 1.0
+ * Last Modified Date   : 23-Dec-2017
+ *********************************************************************/
+BEGIN
+	DECLARE arr[10] AS INTEGER
+	DECLARE arr[10] AS [19,45,12,82,11,8,23,35,20,37]
+ 	DECLARE min,index AS INTEGER AND
+	INITIALIZE min AS 0
+		FOR index=0 TO 9
+			ACCEPT arr[index]
+		END FOR
+		min=arr[0]
+		FOR index=0 TO 9
+			IF (arr[index]<min)
+	THEN
+		min=arr[index]
+			END FOR
+		  DISPLAY"Smallest NUmber,min
+		FOR index=0 TO 9 //loop for printing even numbers
+		IF (arr[index]%2==0) THEN
+		DISPLAY"Even Numbers",arr[index]
+	END IF
+	END FOR
+	FOR index=0 TO 9 //loop for printing odd numbers
+	IF(arr[index]%2==1) THEN
+	DISPLAY "Odd Numbers",arr[index]
+	 	END IF
+	END FOR
+END
+
+
+
+
+1.7
+
+
+
+*******************************************************************
+ * File                 : lab2.txt
+ * Author Name          : somyasree
+ * Desc                 : Program to implement good programming practices
+ * Version              : 1.0
+ * Last Modified Date   : 23-Dec-2017
+ *********************************************************************/
+BEGIN
+	DECLARE price,totalPrice AS INTEGER
+	DECLARE taxRate AS REAL AND SET AS 0.56
+	Print "Enter price of your product"
+	ACCEPT price
+	tax=price*taxRate
+	totalPrice=price+tax
+	Print "Total price of product is",totalPrice
+END
+
+
+2.1
+2.1.1
+
+*******************************************************************
+ * File                 : LAB2.txt
+ * Author Name          : somyasree
+ * Desc                 : Program written in lab 1 to ensure that the code adheres to good implement good programming practices
+ * Version              : 1.0
+ * Last Modified Date   : 23-Dec-2017
+ *********************************************************************/
+BEGIN
+	DECLARE userID, currentReading, lastReading AS INTEGER
+	DECLARE username AS STRING
+	DECLARE unitcoins AS INTEGER AND INITIALIZE TO 0
+	DECLARE netBill AS INTEGER AND INITIALIZE TO 0
+	DECLARE fixed AS INTEGER AND INITIALIZE TO 100
+		ACCEPT userID,username,currentReading,lastReading //Accept values from user
+		CALCULATE unitcoins=currentReading-lastReading //Calculate units consumed
+	CALCULATE netBill=(unitcoins*1.15)+fixed //Calculate net amount
+	PRINT"User ID:"+userID
+	Print the parameters
+		PRINT"User Name:"+username
+		PRINT"Unit Consumed:"+netBill
+END
+
+
+2.1.2
+
+*******************************************************************
+ * File                 : LAB2.txt
+ * Author Name          : somyasree
+ * Desc                 : 
+ * Version              : 1.0
+ * Last Modified Date   : 23-Dec-2017
+ *********************************************************************/
+BEGIN
+	DECLARE exp AS INTEGER //Declare years of experience
+	DECLARE tagColor AS STRING //Declare tag color
+	PROMPT"Enter the years of experience" AND STORE IN exp //Get value from user
+		IF(exp>=0 && exp<3)
+	THEN
+	between 0 to 2
+			PRINT"Tag Color=Blue"
+		ELSEIF(exp>=3 && exp<5)
+	     THEN
+		PRINT"Tag Color=Grey"
+		ELSEIF(exp>=5 && exp<10)
+	     THEN
+		PRINT"Tag Color=Yellow"
+	ELSE
+		PRINT"Tag Color=Red"
+		ENDIF
+END
+
+2.1.3
+
+
+
+*******************************************************************
+ * File                 : LAB2.txt
+ * Author Name          : somyasree
+ * Desc                 : 
+ * Version              : 1.0
+ * Last Modified Date   : 23-Dec-2017
+ *********************************************************************/
+BEGIN
+	BEGIN
+	DELARE num1 AS INTEGER
+	DELARE num2 AS INTEGER
+	DELARE n AS INTEGER
+	DELARE num3 AS INTEGER//Declare number upto which series is to be printed
+	DELARE index AS INTEGER
+	INITIALIZE index AS 0
+	INITIALIZE num1 AS 0
+	INITIALIZE num2 AS 1
+	PROMPT"Enter the number of terms" AND STORE IT IN n//Store entered value in variable number
+	IF number==1 THEN//Checking whether input number is 1
+	PRINT num1
+		ELSEIF number==2 THEN//Checking whether number input is 2
+                PRINT num1 num2
+	ELSE
+		PRINT num1 num2
+		WHILE(index<=number) //loop untill index reaches the input number
+		num3=num1+num2 //adding the first two numbers
+		PRINT num1
+		num1=num2
+		num2=num3
+		index=index+1
+		END WHILE
+	END IF
+END
+
+
+2.1.4
+
+********************************************************************
+ * File                 : LAB2.txt
+ * Author Name          : somyasree
+ * Desc                 : 
+ * Version              : 1.0
+ * Last Modified Date   : 23-Dec-2017
+ *********************************************************************/
+
+BEGIN
+	DECLARE num,temp, rem AS INTEGER //Declare the number to be checked
+	DECLARE sum AS INTEGER AND INITIALIZE AS 0
+	PROMPT "Enter the number" AND STORE IT IN num// Enter the number to be checked
+		temp=num
+		WHILE(temp!=0)//Counting number of digits
+			rem=temp%10
+			sum=sum+rem*rem*rem
+			temp=temp/10
+		END WHILE
+		IF(sum==num)THEN//Comparing number and sum to check if same
+			DISPLAY"Given number is armstrong number", sum//If same then armstrong
+	END IF
+END
+
+2.1.5
+
+*******************************************************************
+ * File                 : binaryTOdecimal.txt
+ * Author Name          : somyasree
+ * Desc                 : Program to convert binary to decimal
+ * Version              : 1.0
+ * Last Modified Date   : 23-Dec-2017
+ *********************************************************************/
+BEGIN
+	DECLARE num AS INTEGER
+	DECLARE bin_num AS INTEGER
+	DECLARE rem AS INTEGER
+	DECLARE dec_num AS INTEGER//Declare the number to be converted into decimal
+	DECLARE base AS INTEGER
+	INITIALIZE dec_num AS 0
+	INITIALIZE base AS 1
+	PROMPT"Enter the binary number" AND STORE IN num
+	bin_num=num
+	WHILE(num>0)
+		rem=num%=10
+		dec_num=dec_num+rem*base
+		num=num/10
+		base=base*2
+	END WHILE
+	PRINT"Binary number",bin_num//Printing the binary number
+	PRINT"Equivalent Decimal number",dec_num//Printing the decimal number
+END
+
+2.1.6
+*******************************************************************
+ * File                 : smallest and even/odd.txt
+ * Author Name          : somyasree
+ * Desc                 : Program to accept 10 numbers in a n array and do the following using a loop.Display the smallest number.Display all ODD and EVEN numbers separetely
+ * Version              : 1.0
+ * Last Modified Date   : 23-Dec-2017
+ *********************************************************************/
+BEGIN
+	DECLARE arr[10] AS INTEGER
+	DECLARE arr[10] AS [19,45,12,82,11,8,23,35,20,37]
+ 	DECLARE min,index AS INTEGER AND
+	INITIALIZE min AS 0
+		FOR index=0 TO 9
+			ACCEPT arr[index]
+		END FOR
+		min=arr[0]
+		FOR index=0 TO 9
+			IF (arr[index]<min)
+	THEN
+		min=arr[index]
+			END FOR
+		  DISPLAY"Smallest NUmber,min
+		FOR index=0 TO 9 //loop for printing even numbers
+		IF (arr[index]%2==0) THEN
+		DISPLAY"Even Numbers",arr[index]
+	END IF
+	END FOR
+	FOR index=0 TO 9 //loop for printing odd numbers
+	IF(arr[index]%2==1) THEN
+	DISPLAY "Odd Numbers",arr[index]
+	 	END IF
+	END FOR
+END
+BEGIN
+	DECLARE arr[10] AS INTEGER// Declare the array
+	DECLARE arr[10] AS [19,45,12,82,11,8,23,35,20,37]
+ 	DECLARE min,index AS INTEGER AND
+	INITIALIZE min AS 0
+		FOR index=0 TO 9
+			ACCEPT arr[index]
+		END FOR
+		min=arr[0]
+		FOR index=0 TO 9// loop for accepting array values
+			IF (arr[index]<min)
+	THEN
+		min=arr[index]
+			END FOR
+		  DISPLAY"Smallest NUmber,min
+		FOR index=0 TO 9 //loop for printing even numbers
+		IF (arr[index]%2==0) THEN
+		DISPLAY"Even Numbers",arr[index]//printing the even numbers
+	END IF
+	END FOR
+	FOR index=0 TO 9 //loop for printing odd numbers
+	IF(arr[index]%2==1) THEN
+	DISPLAY "Odd Numbers",arr[index]//printing the odd numbers
+	 	END IF
+	END FOR
+END		
+
+
+
+
+
+
+2.2
+
+*******************************************************************
+ * File                 : lab2.txt
+ * Author Name          : somyasree
+ * Desc                 : Program to accept a number and return the sum of its digits.Invoke the user define module in main program.
+ * Version              : 1.0
+ * Last Modified Date   : 23-Dec-2017
+ *********************************************************************/
+BEGIN
+	DECLARE arr[10] AS INTEGER
+	INITIALIZE sum AS 0
+	PROMPT"Enter the number"AND STORE IT IN num
+	PRINT"Sum of digits is",getsum
+END
+*******************************************************************
+ * Module name          : getsum()
+ * Input Parameters     : number 
+ * Return type          : INTEGER
+ * Author               : Somyasree
+ * Version              : 1.0
+ * Last Modified Date   : 23-Dec-2017
+ * Description          : to return sum of digits
+ *********************************************************************/
+SUB getsum()
+	DECLARE rem,temp AS INTEGER
+	temp=num
+	WHILE(temp!=0)
+	sum+sum+rem
+	temp=temp/10
+	END WHILE
+	RETURN sum
+END
+
+
+
+
+2.3
+
+
+*******************************************************************
+ * File                 : lab2.txt
+ * Author Name          : somyasree
+ * Desc                 : Program to accept an array with 10 numbers and return number of unique values in an array.
+ * Version              : 1.0
+ * Last Modified Date   : 23-Dec-2017
+ *********************************************************************/
+BEGIN
+	DECLARE arr[10] AS INTEGER ARRAY
+	DECLARE index,count AS INTEGER
+	INITIALIZE count AS 0
+	PRINT "No of Unique elements",count
+END
+*******************************************************************
+ * Module name          : unique()
+ * Input Parameters     : array
+ * Return type          : INTEGER
+ * Author               : Somyasree
+ * Version              : 1.0
+ * Last Modified Date   : 23-Dec-2017
+ * Description          : to return count of unique number
+ *********************************************************************/
+SUB unique(arr[10])
+	FOR index=0 TO 9
+		IF(arr[i]==arr[i+1] THEN
+			continue
+		ELSE
+			count=count+1
+		END IF
+	END FOR
+	RETURN count
+END SUB
+
+
+2.4
+
+
+*******************************************************************
+ * File                 : lab2.txt
+ * Author Name          : somyasree
+ * Desc                 : Program to calculate total leaves applicable per year for an employee.Number of leaves added to an amployee account differs based on the type of employment.
+ * Version              : 1.0
+ * Last Modified Date   : 23-Dec-2017
+ *********************************************************************/
+RECORD Emplyoee
+	DECLARE Emplyd as INTEGER
+	DECLARE employmentType AS STRING
+END RECORD
+BEGIN
+	DECLARE emp,index AS Employee//leaves variable is used to store number of leaves per month
+	DECLARE leaves,TotalLeaves AS INTEGER
+		FOR index=1 to 5
+			PROMPT"Enter the employeeType" AND STORE IN emp.employmentType
+		END FOR
+			PRINT"Employee Id:",emp.Emplyd
+			PRINT"Total Available Leaves are",employmentType()
+END
+

@@ -1,0 +1,38 @@
+3.5 Write a module in pseudo code with 2 parameters: first parameter is a word, the second is a character. 
+      The function must return the number of times the character is found in the word.
+
+/********************************************
+* FILE : LAB_3.5
+* AUTHOR : Somyasree
+* VERSION : 1.0
+* DESCRIPTION : Calculate total leaves applicable per year for an employee 
+* DATE CREATED: 23/12/2017
+********************************************/
+RECORD employee
+	DECLARE empId AS employee
+	DECLARE employmentType AS STRING
+END RECORD
+
+BEGIN
+	DECLARE emp AS employee
+	DECLARE leaves, total_leaves AS INTEGER
+	FOR index 0 TO 5
+		PROMT "Enter the employment id:" AND STORE IN emp.empID
+		PROMT "Enter the employment type:" AND STORE IN emp.employmentType
+	END FOR
+    number_of_leaves(employmentType)
+END
+
+SUB number_of_leaves(employmentType)
+	FOR index 0 TO 5
+		IF( employmentType == 'PERMANENT') THEN
+			leaves = 2			
+		ELSE IF(employmentType == 'CONTRACT') THEN
+			leaves = 1
+		END IF
+		CALCULATE total_leaves = leaves * 12
+		PRINT "employee ID:", emp.empId
+		PRINT "employee leaves are:", emp.total_leaves
+	END FOR	
+SUB END	
+		

@@ -1,0 +1,47 @@
+3.4 Consider the following Algorithm,ALGORITHM Sum(n)
+	//Input: A nonnegative integer n
+	sum?0
+	for index?1 to n do
+	sum?sum+i
+	return sum
+	- What does the above algorithm compute?
+	- What is the efficiency class of the given algorithm?
+
+
+/*************************************************
+* FILE : LAB_3.4
+* AUTHOR : Somyasree
+* VERSION:1.0
+* DESCRIPTION : Read the content from file and display the content in toggle case
+* DATE CREATED : 23/12/2017
+*************************************************/
+BEGIN
+	DECLARE file1 AS FILE
+	DECLARE readData AS STRING
+	PROMT " Enter the file name" AND STORE IN file1
+	IF( fileExists(file)) THEN
+		OPEN file1
+			IF(fileSize(file1)!= 0) THEN
+				WHILE file != EOF
+				DO
+					READ data from the file AND STORE IN readData  
+				END WHILE
+			ELSE
+				PRINT "File is empty"
+			END IF
+	ELSE 
+		PRINT " File doesn't exists"
+	END IF
+	toggle(readData[])
+END
+	
+SUB toggle(readData[])	
+	FOR index = 0 TO readData[index] != '\0'
+		IF((readData[index] >= 65) && (readData[index] < 91))THEN
+			readData[index] = readData[index] + 32
+		ELSE IF((readData[index] >= 97) && (readData[index] <= 122))THEN
+			readData[index] = readData[index] - 32
+		END IF
+	END FOR	
+	WRITE data from file1
+END SUB	

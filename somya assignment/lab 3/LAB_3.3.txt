@@ -1,0 +1,57 @@
+3.3 Find the time efficiency class of the following algorithm,
+	ALGORITHM Find(Matrix[0..n-1,0..n])
+	//Input: An n by n+1 matrix Matrix[0..n-1,0..n] of real numbers
+	for index? 0 to n-2 do
+	for nextindex? index+1 to n-1 do
+	for tempindex? index to n do
+	Matrix[nextindex,tempindex]?Matrix[nextindex,tempindex]-
+	Matrix[index,tempindex] * Matrix[nextindex,index] / Matrix[index,index]
+
+/******************************************
+* FILE : LAB_3.3
+* VERSION : 1.0
+* AUTHOR : Somyasree
+* DESCRIPTION : Read the content of file and remove vowels from that content and write the content which doesn't contain vowels
+* DATE CREATED : 23/12/2017
+********************************************/
+BEGIN
+	DECLARE file1 AS FILE
+	DECLARE readData AS STRING
+	PROMT " Enter the file name" AND STORE IN file1
+	IF( fileExists(file)) THEN // open file having name as file1
+		OPEN file1
+			IF(fileSize(file1)!= 0) THEN
+				WHILE file != EOF
+				DO
+					READ data from the file AND STORE IN readData
+				END WHILE
+			ELSE
+				PRINT "File is empty"
+			END IF
+	ELSE 
+		PRINT " File doesn't exists"
+	END IF
+	consonant_file(readData[])   // function calling
+END	
+
+SUB consonant_file (readData[])    //function definition
+
+	DECLARE file2 AS FILE
+	WHILE(readData[index] != '/0')
+		IF(readData[index] == 'A' && readData[index] == 'a')
+			INCREMENT index
+		ELSE IF(readData[index] == 'E' && readData[index] == 'e')
+			INCREMENT index
+		ELSE IF(readData[index] == 'I' && readData[index] == 'i')
+			INCREMENT index
+		ELSE IF(readData[index] == 'O' && readData[index] == 'o')
+			INCREMENT index
+		ELSE IF(readData[index] == 'U' && readData[index] == 'u')
+			INCREMENT index
+		ELSE
+			READ data from file1 AND STORE IN file2
+			INCREMENT index9
+		END IF
+	END WHILE
+	WRITE data from file1
+END SUB	
