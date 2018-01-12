@@ -1,0 +1,27 @@
+*&---------------------------------------------------------------------*
+*& Report ZMSP_PROGRAM2_II
+*&---------------------------------------------------------------------*
+*&
+*&---------------------------------------------------------------------*
+REPORT ZMSP_PROGRAM2_II.
+TABLES: ZMAN_SALGD_TABLE.
+DATA:ITAB TYPE TABLE OF ZMAN_SALGD_TABLE.
+DATA:WA TYPE ZMAN_SALGD_TABLE.
+
+WA-GRADE = 'D'.
+WA-MINSAL = 6001.
+WA-MAXSAL = 8000.
+
+APPEND WA TO ITAB.
+INSERT INTO ZMAN_SALGD_TABLE VALUES WA.
+
+WA-GRADE = 'E'.
+WA-MINSAL = 8001.
+WA-MAXSAL = 10000.
+
+APPEND WA TO ITAB.
+INSERT INTO ZMAN_SALGD_TABLE VALUES WA.
+
+
+WRITE:/ 'INSERTING RECORDS IS DONE.' COLOR 6.
+ULINE.

@@ -1,0 +1,31 @@
+*&---------------------------------------------------------------------*
+*& Report ZMSP_PROGRAM4
+*&---------------------------------------------------------------------*
+*&
+*&---------------------------------------------------------------------*
+REPORT ZMSP_PROGRAM4.
+TABLES:ZMAN_EMP_TABLE.
+
+DATA: BEGIN OF PTAB OCCURS 1,
+      GRADE TYPE ZMAN_EMP_TABLE-GRADE,
+      SALARY TYPE ZMAN_EMP_TABLE-SALARY,
+      END OF PTAB.
+
+SELECT GRADE SALARY FROM ZMAN_EMP_TABLE INTO PTAB ORDER BY GRADE.
+COLLECT PTAB.
+ENDSELECT.
+
+LOOP AT PTAB.
+  AT FIRST.
+    WRITE:/1 'GRADE',26 'SALARY'.
+    ULINE.
+    ENDAT.
+WRITE:/1 PTAB-GRADE,
+       20 PTAB-SALARY.
+
+AT LAST.
+  ULINE.
+  WRITE / 'SUCCESSFULLY DISPLAYED GRADE WISE SALARY!!'.
+ENDAT.
+ENDLOOP.
+ULINE.
